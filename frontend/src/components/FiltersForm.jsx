@@ -55,7 +55,7 @@ function FiltersForm({ onSearch, currentFilters }) {
                     onChange={handleChange}
                 >
                     <option value="">Toutes les régions</option>
-                    {regions.map((item, index) => (
+                    {Array.isArray(regions) && regions.map((item, index) => (
                         <option key={index} value={item.region}>
                             {item.region}
                         </option>

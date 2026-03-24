@@ -75,6 +75,7 @@ function App() {
                         hoveredCityId={hoveredCityId}
                         onHoverCity={setHoveredCityId}
                         onMapClick={handleMapClick}
+                        radiusKm={filters.maxDistance}
                     />
                 </section>
 

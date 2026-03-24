@@ -26,16 +26,16 @@ body {
   font-size: 24px;
   color: #38bdf8;
   font-weight: 600;
+  text-align: center;
 }
 
 .app-main {
   flex: 1;
   display: flex;
   min-height: 0;
-  flex-direction: row-reverse; /* Map on left (after sidebar conceptually, but standard is sidebar left. Let's make map on left, sidebar on right? The TP says "L’application doit proposer à gauche de l’écran une carte cliquable... et apparaître également dans une liste latérale à droite") */
+  flex-direction: row;
 }
 
-/* Reversing the flex order to put Map on Left, Sidebar on Right */
 .app-map-section {
   flex: 1;
   position: relative;

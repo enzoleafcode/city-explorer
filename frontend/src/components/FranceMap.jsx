@@ -4,6 +4,7 @@ import {
     Marker,
     Popup,
     useMapEvents,
+    Circle,
 } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
@@ -57,7 +58,7 @@ function MapEventsHandler({ onMapClick }) {
     return null;
 }
 
-function FranceMap({ cities, origin, hoveredCityId, onHoverCity, onMapClick }) {
+function FranceMap({ cities, origin, hoveredCityId, onHoverCity, onMapClick, radiusKm }) {
     return (
         <MapContainer
             center={FRANCE_CENTER}
@@ -77,9 +78,21 @@ function FranceMap({ cities, origin, hoveredCityId, onHoverCity, onMapClick }) {
 
             {/* Display the point clicked by the user */}
             {origin && (
-                <Marker position={[origin.lat, origin.lng]} icon={originIcon}>
-                     <Popup>Point de recherche</Popup>
-                </Marker>
+                <>
+                    <Marker position={[origin.lat, origin.lng]} icon={originIcon}>
+                        <Popup>Point de recherche</Popup>
+                    </Marker>
+                    <Circle
+                        center={[origin.lat, origin.lng]}
+                        radius={radiusKm * 1000}
+                        pathOptions={{
+                            color: "#38bdf8",
+                            fillColor: "#38bdf8",
+                            fillOpacity: 0.15,
+                            weight: 2,
+                        }}
+                    />
+                </>
             )}
 
             {/* Display the nearby cities */}
